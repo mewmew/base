@@ -1,7 +1,7 @@
 gobase
 ======
 
-To gobase projects implements basic file and text manipulation utilities.
+The gobase projects implements basic file and text manipulation utilities.
 
 The following tools are covered:
 
