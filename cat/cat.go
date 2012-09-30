@@ -28,22 +28,22 @@ const StdinFileName = "-"
 func main() {
 	if flag.NArg() == 0 {
 		// Read from stdin when no FILE has been provided.
-		err := cat(StdinFileName)
+		err := Cat(StdinFileName)
 		if err != nil {
 			log.Fatalln(err)
 		}
 	}
 	for _, filePath := range flag.Args() {
-		err := cat(filePath)
+		err := Cat(filePath)
 		if err != nil {
 			log.Fatalln(err)
 		}
 	}
 }
 
-// cat outputs the content of a provided file or standard input (if the provided
-// file path is "-").
-func cat(filePath string) (err error) {
+// Cat outputs the content of a provided file or standard input (when the
+// provided file path is "-").
+func Cat(filePath string) (err error) {
 	var fr *os.File
 	if filePath == StdinFileName {
 		fr = os.Stdin

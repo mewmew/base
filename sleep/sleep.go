@@ -22,15 +22,15 @@ func usage() {
 
 func main() {
 	for _, duration := range flag.Args() {
-		err := sleep(duration)
+		err := Sleep(duration)
 		if err != nil {
 			log.Fatalln(err)
 		}
 	}
 }
 
-// sleep sleeps for the specified duration.
-func sleep(duration string) (err error) {
+// Sleep sleeps for the specified duration.
+func Sleep(duration string) (err error) {
 	d, err := time.ParseDuration(duration)
 	if err != nil {
 		d, err = time.ParseDuration(duration+"s")

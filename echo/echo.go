@@ -21,12 +21,12 @@ func usage() {
 }
 
 func main() {
-	echo(flag.Args())
+	Echo(flag.Args())
 }
 
-// echo prints the provided arguments, separated by spaces and terminated by a
+// Echo prints the provided arguments, separated by spaces and terminated by a
 // newline, to the standard output.
-func echo(args []string) {
+func Echo(args []string) {
 	for i, arg := range args {
 		fmt.Print(arg)
 		if i < len(args)-1 {
