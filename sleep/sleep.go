@@ -4,6 +4,7 @@ import "flag"
 import "fmt"
 import "log"
 import "os"
+import "strconv"
 import "time"
 
 func init() {
@@ -33,10 +34,11 @@ func main() {
 func Sleep(duration string) (err error) {
 	d, err := time.ParseDuration(duration)
 	if err != nil {
-		d, err = time.ParseDuration(duration+"s")
+		sec, err := strconv.Atoi(duration)
 		if err != nil {
 			return err
 		}
+		d = time.Duration(sec) * time.Second
 	}
 	time.Sleep(d)
 	return nil
