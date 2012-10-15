@@ -32,6 +32,7 @@ func main() {
 		if err != nil {
 			log.Fatalln(err)
 		}
+		return
 	}
 	for _, filePath := range flag.Args() {
 		err := Cat(filePath)
