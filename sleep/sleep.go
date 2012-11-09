@@ -9,7 +9,6 @@ import "time"
 
 func init() {
 	flag.Usage = usage
-	flag.Parse()
 }
 
 func usage() {
@@ -22,6 +21,7 @@ func usage() {
 }
 
 func main() {
+	flag.Parse()
 	for _, duration := range flag.Args() {
 		err := Sleep(duration)
 		if err != nil {

@@ -8,7 +8,6 @@ import "os"
 
 func init() {
 	flag.Usage = usage
-	flag.Parse()
 }
 
 func usage() {
@@ -26,6 +25,7 @@ func usage() {
 const StdinFileName = "-"
 
 func main() {
+	flag.Parse()
 	if flag.NArg() == 0 {
 		// Read from stdin when no FILE has been provided.
 		err := Cat(StdinFileName)

@@ -10,7 +10,6 @@ var suppressNewline bool
 func init() {
 	flag.BoolVar(&suppressNewline, "n", false, "suppress the trailing newline.")
 	flag.Usage = usage
-	flag.Parse()
 }
 
 func usage() {
@@ -21,6 +20,7 @@ func usage() {
 }
 
 func main() {
+	flag.Parse()
 	Echo(flag.Args())
 }
 

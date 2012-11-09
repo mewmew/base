@@ -10,7 +10,6 @@ import "github.com/mewkiz/pkg/bufioutil"
 
 func init() {
 	flag.Usage = usage
-	flag.Parse()
 }
 
 func usage() {
@@ -23,6 +22,7 @@ func usage() {
 }
 
 func main() {
+	flag.Parse()
 	err := Sort(flag.Args())
 	if err != nil {
 		log.Fatalln(err)
