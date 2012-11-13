@@ -23,7 +23,7 @@ func init() {
 
 func usage() {
 	fmt.Fprintln(os.Stderr, "Usage: hexdump [OPTION]... [FILE]...")
-	fmt.Fprintln(os.Stderr, "Writes a hex dump of the provided file to standard output.")
+	fmt.Fprintln(os.Stderr, "Display file contents in hex and ASCII.")
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "With no FILE, or when FILE is -, read standard input.")
 	fmt.Fprintln(os.Stderr)
