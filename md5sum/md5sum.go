@@ -1,5 +1,6 @@
 package main
 
+import "crypto/md5"
 import "flag"
 import "fmt"
 import "io"
@@ -11,14 +12,10 @@ func init() {
 }
 
 func usage() {
-	fmt.Fprintln(os.Stderr, "Usage: cat [FILE]...")
-	fmt.Fprintln(os.Stderr, "Concatenate FILE(s), or standard input, to standard output.")
+	fmt.Fprintln(os.Stderr, "Usage: md5sum [FILE]...")
+	fmt.Fprintln(os.Stderr, "Print MD5 checksums.")
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "With no FILE, or when FILE is -, read standard input.")
-	fmt.Fprintln(os.Stderr)
-	fmt.Fprintln(os.Stderr, "Examples:")
-	fmt.Fprintln(os.Stderr, "  cat f - g  Output f's contents, then standard input, then g's contents.")
-	fmt.Fprintln(os.Stderr, "  cat        Copy standard input to standard output.")
 }
 
 // StdinFileName is a reserved file name used for standard input.
@@ -28,24 +25,24 @@ func main() {
 	flag.Parse()
 	if flag.NArg() == 0 {
 		// Read from stdin when no FILE has been provided.
-		err := cat(StdinFileName)
+		err := md5sum(StdinFileName)
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
 		}
 		return
 	}
 
 	for _, filePath := range flag.Args() {
-		err := cat(filePath)
+		err := md5sum(filePath)
 		if err != nil {
-			log.Fatalln(err)
+			log.Println(err)
 		}
 	}
 }
 
-// cat outputs the content of a provided file or standard input (when the
-// provided file path is "-").
-func cat(filePath string) (err error) {
+// md5sum outputs the MD5 checksum of a provided file or standard input (when
+// the provided file path is "-").
+func md5sum(filePath string) (err error) {
 	// Open file.
 	var fr *os.File
 	if filePath == StdinFileName {
@@ -58,11 +55,13 @@ func cat(filePath string) (err error) {
 		defer fr.Close()
 	}
 
-	// Write file contents to standard output.
-	_, err = io.Copy(os.Stdout, fr)
+	// Output MD5 checksum.
+	h := md5.New()
+	_, err = io.Copy(h, fr)
 	if err != nil {
 		return err
 	}
+	fmt.Printf("%x  %s\n", h.Sum(nil), filePath)
 
 	return nil
 }
