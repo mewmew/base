@@ -34,6 +34,7 @@ func main() {
 		}
 		return
 	}
+
 	for _, filePath := range flag.Args() {
 		err := cat(filePath)
 		if err != nil {
@@ -45,6 +46,7 @@ func main() {
 // cat outputs the content of a provided file or standard input (when the
 // provided file path is "-").
 func cat(filePath string) (err error) {
+	// Open file.
 	var fr *os.File
 	if filePath == StdinFileName {
 		fr = os.Stdin
@@ -55,6 +57,8 @@ func cat(filePath string) (err error) {
 		}
 		defer fr.Close()
 	}
+
+	// Write file contents to standard output.
 	_, err = io.Copy(os.Stdout, fr)
 	if err != nil {
 		return err

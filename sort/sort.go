@@ -23,15 +23,15 @@ func usage() {
 
 func main() {
 	flag.Parse()
-	err := sort(flag.Args())
+	err := sortFiles(flag.Args())
 	if err != nil {
 		log.Fatalln(err)
 	}
 }
 
-// sort writes the sorted concatenation of all provided files or standard input
-// (when no file has been provided).
-func sort(filePaths []string) (err error) {
+// sortFiles writes the sorted concatenation of all provided files or standard
+// input (when no file has been provided).
+func sortFiles(filePaths []string) (err error) {
 	lines := make([]string, 0)
 	for _, filePath := range filePaths {
 		l, err := bufioutil.ReadLines(filePath)
