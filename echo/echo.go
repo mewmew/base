@@ -8,7 +8,7 @@ import "os"
 var suppressNewline bool
 
 func init() {
-	flag.BoolVar(&suppressNewline, "n", false, "suppress the trailing newline.")
+	flag.BoolVar(&suppressNewline, "n", false, "Suppress the trailing newline.")
 	flag.Usage = usage
 }
 
@@ -33,7 +33,9 @@ func echo(args []string) {
 			fmt.Print(" ")
 		}
 	}
+
 	if !suppressNewline {
+		// Output trailing newline if "-n" flag isn't set.
 		fmt.Println()
 	}
 }
