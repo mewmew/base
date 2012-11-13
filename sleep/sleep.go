@@ -23,15 +23,15 @@ func usage() {
 func main() {
 	flag.Parse()
 	for _, duration := range flag.Args() {
-		err := Sleep(duration)
+		err := sleep(duration)
 		if err != nil {
 			log.Fatalln(err)
 		}
 	}
 }
 
-// Sleep sleeps for the specified duration.
-func Sleep(duration string) (err error) {
+// sleep sleeps for the specified duration.
+func sleep(duration string) (err error) {
 	d, err := time.ParseDuration(duration)
 	if err != nil {
 		sec, err := strconv.Atoi(duration)

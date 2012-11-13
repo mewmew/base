@@ -38,7 +38,7 @@ func main() {
 	flag.Parse()
 	if flag.NArg() == 0 {
 		// Read from stdin when no FILE has been provided.
-		err := HexDump(StdinFileName)
+		err := hexdump(StdinFileName)
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -46,7 +46,7 @@ func main() {
 	}
 
 	for _, filePath := range flag.Args() {
-		err := HexDump(filePath)
+		err := hexdump(filePath)
 		if err != nil {
 			log.Fatalln(err)
 		}
@@ -56,10 +56,10 @@ func main() {
 // StdinFileName is a reserved file name used for standard input.
 const StdinFileName = "-"
 
-// HexDump writes a hex dump of the provided file or standard input (when the
+// hexdump writes a hex dump of the provided file or standard input (when the
 // provided file path is "-") to standard output. The format of the dump matches
 // the output of `hexdump -C` on the command line.
-func HexDump(filePath string) (err error) {
+func hexdump(filePath string) (err error) {
 	// Open input file.
 	var fr *os.File
 	if filePath == StdinFileName {

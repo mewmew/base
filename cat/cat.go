@@ -28,23 +28,23 @@ func main() {
 	flag.Parse()
 	if flag.NArg() == 0 {
 		// Read from stdin when no FILE has been provided.
-		err := Cat(StdinFileName)
+		err := cat(StdinFileName)
 		if err != nil {
 			log.Fatalln(err)
 		}
 		return
 	}
 	for _, filePath := range flag.Args() {
-		err := Cat(filePath)
+		err := cat(filePath)
 		if err != nil {
 			log.Fatalln(err)
 		}
 	}
 }
 
-// Cat outputs the content of a provided file or standard input (when the
+// cat outputs the content of a provided file or standard input (when the
 // provided file path is "-").
-func Cat(filePath string) (err error) {
+func cat(filePath string) (err error) {
 	var fr *os.File
 	if filePath == StdinFileName {
 		fr = os.Stdin
