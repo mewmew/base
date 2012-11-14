@@ -9,6 +9,7 @@ The following tools are covered:
    * echo - print arguments
    * hexdump - output hex dumps
    * md5sum - print MD5 checksums
+   * mkdir - make directories
    * sha1sum - print SHA1 checksums
    * sha256sum - print SHA256 checksums
    * sha512sum - print SHA512 checksums
@@ -19,7 +20,6 @@ The following tools will be covered:
 
    * diff - compare files line by line
    * grep - search files for a pattern
-   * mkdir - make directories
    * strings - display printable strings
    * uniq - report or omit repeated lines
 
