@@ -5,6 +5,7 @@ The gobase projects implements basic file and text manipulation utilities.
 
 The following tools are covered:
 
+   * base64 - base64 encode or decode files
    * cat - concatenate files
    * echo - print arguments
    * hexdump - output hex dumps
