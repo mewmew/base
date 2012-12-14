@@ -11,6 +11,7 @@ The following tools are covered:
    * hexdump - output hex dumps
    * md5sum - print MD5 checksums
    * mkdir - make directories
+   * nc - read and write data across networks
    * sha1sum - print SHA1 checksums
    * sha256sum - print SHA256 checksums
    * sha512sum - print SHA512 checksums
