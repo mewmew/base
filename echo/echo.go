@@ -16,6 +16,7 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "Usage: echo [OPTION]... [STRING]...")
 	fmt.Fprintln(os.Stderr, "Echo STRING(s) to standard output.")
 	fmt.Fprintln(os.Stderr)
+	fmt.Fprintln(os.Stderr, "Flags:")
 	flag.PrintDefaults()
 }
 

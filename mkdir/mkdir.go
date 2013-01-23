@@ -38,6 +38,7 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "Usage: mkdir [OPTION]... DIRECTORY...")
 	fmt.Fprintln(os.Stderr, "Create DIRECTORY(ies).")
 	fmt.Fprintln(os.Stderr)
+	fmt.Fprintln(os.Stderr, "Flags:")
 	flag.PrintDefaults()
 }
 

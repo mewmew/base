@@ -61,7 +61,12 @@ func sha1sum(filePath string) (err error) {
 	if err != nil {
 		return err
 	}
-	fmt.Printf("%x  %s\n", h.Sum(nil), filePath)
+	if filePath == StdinFileName {
+		// don't output file path for standard input.
+		fmt.Printf("%x\n", h.Sum(nil))
+	} else {
+		fmt.Printf("%x  %s\n", h.Sum(nil), filePath)
+	}
 
 	return nil
 }

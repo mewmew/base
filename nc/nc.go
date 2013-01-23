@@ -23,6 +23,7 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "Usage: nc [OPTION]... ADDR")
 	fmt.Fprintln(os.Stderr, "Read and write data across networks.")
 	fmt.Fprintln(os.Stderr)
+	fmt.Fprintln(os.Stderr, "Flags:")
 	flag.PrintDefaults()
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Examples:")
