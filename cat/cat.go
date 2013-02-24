@@ -17,8 +17,10 @@ func usage() {
 	fmt.Fprintln(os.Stderr, "With no FILE, or when FILE is -, read standard input.")
 	fmt.Fprintln(os.Stderr)
 	fmt.Fprintln(os.Stderr, "Examples:")
-	fmt.Fprintln(os.Stderr, "  cat f - g  Output f's contents, then standard input, then g's contents.")
-	fmt.Fprintln(os.Stderr, "  cat        Copy standard input to standard output.")
+	fmt.Fprintln(os.Stderr, "  Output f's contents, then standard input, then g's contents.")
+	fmt.Fprintln(os.Stderr, "    cat f - g")
+	fmt.Fprintln(os.Stderr, "  Copy standard input to standard output.")
+	fmt.Fprintln(os.Stderr, "    cat")
 }
 
 // StdinFileName is a reserved file name used for standard input.
@@ -26,16 +28,15 @@ const StdinFileName = "-"
 
 func main() {
 	flag.Parse()
+
+	var filePaths []string
 	if flag.NArg() == 0 {
 		// Read from stdin when no FILE has been provided.
-		err := cat(StdinFileName)
-		if err != nil {
-			log.Fatalln(err)
-		}
-		return
+		filePaths = []string{StdinFileName}
+	} else {
+		filePaths = flag.Args()
 	}
-
-	for _, filePath := range flag.Args() {
+	for _, filePath := range filePaths {
 		err := cat(filePath)
 		if err != nil {
 			log.Fatalln(err)
