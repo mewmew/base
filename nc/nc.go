@@ -73,7 +73,6 @@ func listen(addr string) (err error) {
 		cl.Add(conn.RemoteAddr().String(), conn)
 		go listenOutput(conn, cl)
 	}
-	return nil
 }
 
 // listenInput writes to all connected clients from standard input.
