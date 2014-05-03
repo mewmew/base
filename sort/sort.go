@@ -35,15 +35,14 @@ func main() {
 func sortFiles(filePaths []string) (err error) {
 	lines := make([]string, 0)
 	for _, filePath := range filePaths {
-		l, err := bufioutil.ReadLines(filePath)
+		l, err := bufioutil.LoadLines(filePath)
 		if err != nil {
 			return err
 		}
 		lines = append(lines, l...)
 	}
 	if len(filePaths) == 0 {
-		br := bufioutil.NewReader(os.Stdin)
-		lines, err = br.ReadLines()
+		lines, err = bufioutil.ReadLines(os.Stdin)
 		if err != nil {
 			return err
 		}
