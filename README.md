@@ -1,6 +1,10 @@
 gobase
 ======
 
+[![Build Status](https://travis-ci.org/mewmew/gobase.svg?branch=master)](https://travis-ci.org/mewmew/gobase)
+[![Coverage Status](https://img.shields.io/coveralls/mewmew/gobase.svg)](https://coveralls.io/r/mewmew/gobase?branch=master)
+[![GoDoc](https://godoc.org/github.com/mewmew/gobase?status.svg)](https://godoc.org/github.com/mewmew/gobase)
+
 The gobase projects implements basic file and text manipulation utilities.
 
 The following tools are covered:
