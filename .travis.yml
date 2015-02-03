@@ -3,10 +3,12 @@ language: go
 notifications:
   email: false
 
-env:
-  global:
-    - secure: "CPu3y63Gx4OsC05IpgwIBOfpZw/kgsPKwnDNllRpHN+GRVyyObHBoDUV3HbDzmyRZfCKemD+pqNBU4eqtxEvkePGEH40axpWrVdegV2Yb+fc1ZfT310pUVSMQA2BORAtRNan/Hz0AphXj2Fib8DFmoRTD8gIu/35hOeQqYlZAR8="
-    - PATH=$HOME/gopath/bin:$PATH
+# TODO: Regenerate COVERALLS_TOKEN.
+
+#env:
+#  global:
+#    - secure: "CPu3y63Gx4OsC05IpgwIBOfpZw/kgsPKwnDNllRpHN+GRVyyObHBoDUV3HbDzmyRZfCKemD+pqNBU4eqtxEvkePGEH40axpWrVdegV2Yb+fc1ZfT310pUVSMQA2BORAtRNan/Hz0AphXj2Fib8DFmoRTD8gIu/35hOeQqYlZAR8="
+#    - PATH=$HOME/gopath/bin:$PATH
 
 before_install:
   - go get golang.org/x/tools/cmd/cover
@@ -18,9 +20,9 @@ before_install:
 install:
   - go get github.com/mewmew/gobase/...
 
-before_script:
-  - wget https://gist.github.com/mewmew/379014c9a2e6885e238d/raw/goclean.sh
-  - chmod +x goclean.sh
-
-script:
-  - ./goclean.sh
+#before_script:
+#  - wget https://gist.github.com/mewmew/379014c9a2e6885e238d/raw/goclean.sh
+#  - chmod +x goclean.sh
+#
+#script:
+#  - ./goclean.sh
